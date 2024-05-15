@@ -11,7 +11,9 @@ data_atual = data_atual.date().strftime('%d-%m-%Y')
 data_ontem = data_ontem.date().strftime('%d-%m-%Y')
 
 # DESPESA
-
+print(' ')
+print('Atualizando DESPESA...')
+print(' ')
 
 try:
     # Desativar a verificação do certificado SSL
@@ -56,7 +58,9 @@ base_despesas.to_excel('S:/SOP/003 - GERÊNCIA DE ESTUDOS E PROJEÇÕES/DASHBOAR
 
 
 # DOTACAO
-
+print(' ')
+print('Atualizando DOTACAO...')
+print(' ')
 
 try:
     # Desativar a verificação do certificado SSL
@@ -105,7 +109,9 @@ for coluna in df_merge.select_dtypes(include=[object, 'string']):
 base_dotacao.to_csv('S:/SOP/003 - GERÊNCIA DE ESTUDOS E PROJEÇÕES/DASHBOARDS POWERBI/DESPESAS 2024/base_dotacao.csv', index=False)
 
 # RECEITA
-
+print(' ')
+print('Atualizando RECEITA...')
+print(' ')
 
 try:
     # Desativar a verificação do certificado SSL
@@ -143,3 +149,7 @@ df = pd.concat([df_antigo, df_novo], axis=0)
 #df_merge = pd.merge(df, df_ug, on='UG', suffixes=('', '_DROP')).filter(regex='^(?!.*_DROP)')
 base_receita = df.copy()
 base_receita.to_excel('S:/SOP/003 - GERÊNCIA DE ESTUDOS E PROJEÇÕES/DASHBOARDS POWERBI/DESPESAS 2024/receitas_base_18a24.xlsx', index=False)
+
+print(' ')
+print('FINALIZADO')
+print(' ')
