@@ -6,6 +6,8 @@ from datetime import datetime, timedelta
 from unidecode import unidecode
 import tkinter as tk
 from tkinter import messagebox
+import warnings
+warnings.filterwarnings('ignore')
 
 data_atual = datetime.now()
 data_ontem = data_atual - timedelta(days=1)
@@ -17,15 +19,14 @@ def popup_concluido():
     root = tk.Tk()
     root.withdraw()  # Esconde a janela principal
     messagebox.showinfo("Atualização das Bases", "Atualização das bases de despesa, dotação e receita concluída!")
-    root.destroy()
+    
 
 # mensagem de NAO concluido
 def popup_erro():
     root = tk.Tk()
     root.withdraw()  # Esconde a janela principal
     messagebox.showinfo("Atualização das Bases", "Atualização não sucedida!\nVerificar possível erro.")
-    root.destroy()
-
+    
 try:
 
     # DESPESA
@@ -169,9 +170,11 @@ try:
     base_receita.to_excel('S:/SOP/003 - GERÊNCIA DE ESTUDOS E PROJEÇÕES/DASHBOARDS POWERBI/DESPESAS 2024/receitas_base_18a24.xlsx', index=False)
 
     print(' ')
-    print('FINALIZADO')
+    print('ATUALIZACAO CONCLUIDA!')
     print(' ')
-    
     popup_concluido()
 except:
+    print(' ')
+    print('ATUALIZACAO NAO CONCLUIDA! Verificar possivel erro.')
+    print(' ')
     popup_erro()
