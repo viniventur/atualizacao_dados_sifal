@@ -40,6 +40,8 @@ try:
         arquivo_csv = os.path.join('S:/SOP/003 - GERÊNCIA DE ESTUDOS E PROJEÇÕES/DASHBOARDS POWERBI/Base python', f'despesa_empenhado_liquidado_pago_consolidado_2018-2024_siafe_gerado_em_{data_ontem}.csv')
         base_despesas_arquivo = os.path.join('S:/SOP/003 - GERÊNCIA DE ESTUDOS E PROJEÇÕES/DASHBOARDS POWERBI/DESPESAS 2024', f'base_despesas.xlsx')
         base_despesas_arquivo_csv = os.path.join('S:/SOP/003 - GERÊNCIA DE ESTUDOS E PROJEÇÕES/DASHBOARDS POWERBI/DESPESAS 2024', f'base_despesas.csv')
+        if os.path.exists(base_despesas_arquivo_csv):
+            os.remove(base_despesas_arquivo_csv)
         # Baixar o arquivo
         wget.download(url, arquivo_csv)
         wget.download(url, base_despesas_arquivo_csv)
@@ -49,9 +51,14 @@ try:
         arquivo_csv = os.path.join('S:/SOP/003 - GERÊNCIA DE ESTUDOS E PROJEÇÕES/DASHBOARDS POWERBI/Base python', f'despesa_empenhado_liquidado_pago_consolidado_2018-2024_siafe_gerado_em_{data_ontem}.csv')
         base_despesas_arquivo = os.path.join('S:/SOP/003 - GERÊNCIA DE ESTUDOS E PROJEÇÕES/DASHBOARDS POWERBI/DESPESAS 2024', f'base_despesas.xlsx')
         base_despesas_arquivo_csv = os.path.join('S:/SOP/003 - GERÊNCIA DE ESTUDOS E PROJEÇÕES/DASHBOARDS POWERBI/DESPESAS 2024', f'base_despesas.csv')
+        if os.path.exists(base_despesas_arquivo_csv):
+            os.remove(base_despesas_arquivo_csv)
         # Baixar o arquivo
         wget.download(url, arquivo_csv)
         wget.download(url, base_despesas_arquivo_csv)
+
+    df_desp = pd.read_csv(base_despesas_arquivo_csv, sep=';', encoding='latin2')
+    df_desp.to_csv(base_despesas_arquivo_csv, index=False, encoding='latin2', decimal=',')
 
     # DOTACAO
     print(' ')
@@ -62,6 +69,8 @@ try:
         url = f'http://extrator.sefaz.al.gov.br/DESPESAS/COMPARATIVO-DOTACOES/CONSOLIDADO/comparativo_dotacao_despesa_consolidado_2018-2024_siafe_gerado_em_{data_ontem}.csv'
         arquivo_csv = os.path.join('S:/SOP/003 - GERÊNCIA DE ESTUDOS E PROJEÇÕES/DASHBOARDS POWERBI/Base python', f'comparativo_dotacao_despesa_consolidado_2018-2024_siafe_gerado_em_{data_ontem}.csv')
         base_dotacao_arquivo = os.path.join('S:/SOP/003 - GERÊNCIA DE ESTUDOS E PROJEÇÕES/DASHBOARDS POWERBI/DESPESAS 2024', f'base_dotacao.csv')
+        if os.path.exists(base_dotacao_arquivo):
+            os.remove(base_dotacao_arquivo)
         # Baixar o arquivo
         wget.download(url, arquivo_csv)
         wget.download(url, base_dotacao_arquivo)
@@ -69,9 +78,15 @@ try:
         url = f'http://extrator.sefaz.al.gov.br/DESPESAS/COMPARATIVO-DOTACOES/CONSOLIDADO/comparativo_dotacao_despesa_consolidado_2018-2024_siafe_gerado_em_{data_atual}.csv'
         arquivo_csv = os.path.join('S:/SOP/003 - GERÊNCIA DE ESTUDOS E PROJEÇÕES/DASHBOARDS POWERBI/Base python', f'comparativo_dotacao_despesa_consolidado_2018-2024_siafe_gerado_em_{data_atual}.csv')
         base_dotacao_arquivo = os.path.join('S:/SOP/003 - GERÊNCIA DE ESTUDOS E PROJEÇÕES/DASHBOARDS POWERBI/DESPESAS 2024', f'base_dotacao.csv')
+        if os.path.exists(base_dotacao_arquivo):
+            os.remove(base_dotacao_arquivo)
         # Baixar o arquivo
         wget.download(url, arquivo_csv)
         wget.download(url, base_dotacao_arquivo)
+
+
+    df_dot = pd.read_csv(base_dotacao_arquivo, sep=';', encoding='latin2')
+    df_dot.to_csv(base_dotacao_arquivo, index=False, encoding='latin2', decimal=',')
 
     # RECEITA
     print(' ')
@@ -82,6 +97,8 @@ try:
         url = f'http://extrator.sefaz.al.gov.br/RECEITAS/receita_consolidado_2018_2024_siafe_gerado_em_{data_ontem}.xlsx'
         arquivo = os.path.join('S:/SOP/003 - GERÊNCIA DE ESTUDOS E PROJEÇÕES/DASHBOARDS POWERBI/Base python', f'receita_consolidado_2018_2024_siafe_gerado_em_{data_ontem}.xlsx')
         base_receita_arquivo = os.path.join('S:/SOP/003 - GERÊNCIA DE ESTUDOS E PROJEÇÕES/DASHBOARDS POWERBI/DESPESAS 2024', f'receitas_base_18a24.xlsx')
+        if os.path.exists(base_receita_arquivo):
+            os.remove(base_receita_arquivo)
         # Baixar o arquivo
         wget.download(url, arquivo)
         wget.download(url, base_receita_arquivo)
@@ -89,6 +106,8 @@ try:
         url = f'http://extrator.sefaz.al.gov.br/RECEITAS/receita_consolidado_2018_2024_siafe_gerado_em_{data_atual}.xlsx'
         arquivo = os.path.join('S:/SOP/003 - GERÊNCIA DE ESTUDOS E PROJEÇÕES/DASHBOARDS POWERBI/Base python', f'receita_consolidado_2018_2024_siafe_gerado_em_{data_atual}.xlsx')
         base_receita_arquivo = os.path.join('S:/SOP/003 - GERÊNCIA DE ESTUDOS E PROJEÇÕES/DASHBOARDS POWERBI/DESPESAS 2024', f'receitas_base_18a24.xlsx')
+        if os.path.exists(base_receita_arquivo):
+            os.remove(base_receita_arquivo)
         # Baixar o arquivo
         wget.download(url, arquivo)
         wget.download(url, base_receita_arquivo)
