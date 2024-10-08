@@ -33,17 +33,19 @@ def despesa():
 
         try:
             url = f'http://extrator.sefaz.al.gov.br/DESPESAS/COMPARATIVO-DESPESAS/CONSOLIDADO/despesa_empenhado_liquidado_pago_consolidado_2018-2024_siafe_gerado_em_{data_ontem}.csv'
-            df_desp = pd.read_csv(url, sep=';', encoding='latin2')
+            #df_desp = pd.read_csv(url, sep=';', encoding='latin2')
         except: 
             url = f'http://extrator.sefaz.al.gov.br/DESPESAS/COMPARATIVO-DESPESAS/CONSOLIDADO/despesa_empenhado_liquidado_pago_consolidado_2018-2024_siafe_gerado_em_{data_atual}.csv'
-            df_desp = pd.read_csv(url, sep=';', encoding='latin2')
+            #df_desp = pd.read_csv(url, sep=';', encoding='latin2')
         
-        base_despesas_arquivo_csv = os.path.join('C:/Users/vinicius.ventura/Documents/teste', f'base_despesas.csv')
+        base_despesas_arquivo_csv = os.path.join('Z:/DADOS/EXTRATOR/DESPESAS/', f'base_despesas_18_24.csv')
         
         if os.path.exists(base_despesas_arquivo_csv):
                     os.remove(base_despesas_arquivo_csv)
 
-        df_desp.to_csv(base_despesas_arquivo_csv, index=False, encoding='latin2', decimal=',')
+        wget.download(url, base_despesas_arquivo_csv)
+
+        #df_desp.to_csv(base_despesas_arquivo_csv, index=False, encoding='latin2', decimal=',')
     except Exception as e:
         print(' ') 
         print('Erro na atualização da DESPESA:')
@@ -59,17 +61,19 @@ def dotacao():
 
         try:
             url = f'http://extrator.sefaz.al.gov.br/DESPESAS/COMPARATIVO-DOTACOES/CONSOLIDADO/comparativo_dotacao_despesa_consolidado_2018-2024_siafe_gerado_em_{data_ontem}.csv'
-            df_dot = pd.read_csv(url, sep=';', encoding='latin2')
+            #df_dot = pd.read_csv(url, sep=';', encoding='latin2')
         except: 
             url = f'http://extrator.sefaz.al.gov.br/DESPESAS/COMPARATIVO-DOTACOES/CONSOLIDADO/comparativo_dotacao_despesa_consolidado_2018-2024_siafe_gerado_em_{data_atual}.csv'
-            df_dot = pd.read_csv(url, sep=';', encoding='latin2')
+            #df_dot = pd.read_csv(url, sep=';', encoding='latin2')
         
-        base_dotacao_arquivo = os.path.join('C:/Users/vinicius.ventura/Documents/teste', f'base_dotacao.csv')
+        base_dotacao_arquivo = os.path.join('Z:/DADOS/EXTRATOR/DOTACOES/', f'base_dotacao_18_24.csv')
         
         if os.path.exists(base_dotacao_arquivo):
             os.remove(base_dotacao_arquivo)
         
-        df_dot.to_csv(base_dotacao_arquivo, index=False, encoding='latin2', decimal=',')
+        wget.download(url, base_dotacao_arquivo)
+
+        #df_dot.to_csv(base_dotacao_arquivo, index=False, encoding='latin2', decimal=',')
     except Exception as e:
         print(' ') 
         print('Erro na atualização da DOTACAO:')
@@ -87,7 +91,7 @@ def receita():
         try:
             url = f'http://extrator.sefaz.al.gov.br/RECEITAS/receita_consolidado_2018_2024_siafe_gerado_em_{data_ontem}.xlsx'
 
-            base_receita_arquivo = os.path.join('C:/Users/vinicius.ventura/Documents/teste', f'receitas_base_18a24.xlsx')
+            base_receita_arquivo = os.path.join('Z:/DADOS/EXTRATOR/RECEITAS/', f'receitas_base_18a24.xlsx')
 
             if os.path.exists(base_receita_arquivo):
                 os.remove(base_receita_arquivo)
@@ -96,7 +100,7 @@ def receita():
         except: 
             url = f'http://extrator.sefaz.al.gov.br/RECEITAS/receita_consolidado_2018_2024_siafe_gerado_em_{data_atual}.xlsx'
             
-            base_receita_arquivo = os.path.join('C:/Users/vinicius.ventura/Documents/teste', f'receitas_base_18a24.xlsx')
+            base_receita_arquivo = os.path.join('Z:/DADOS/EXTRATOR/RECEITAS/', f'receitas_base_18a24.xlsx')
             
             if os.path.exists(base_receita_arquivo):
                 os.remove(base_receita_arquivo)
