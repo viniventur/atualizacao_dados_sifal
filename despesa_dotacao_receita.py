@@ -91,22 +91,31 @@ def receita():
         try:
             url = f'http://extrator.sefaz.al.gov.br/RECEITAS/receita_consolidado_2018_2024_siafe_gerado_em_{data_ontem}.xlsx'
 
-            base_receita_arquivo = os.path.join('Z:/DADOS/EXTRATOR/RECEITAS/', f'receitas_base_18a24.xlsx')
+            base_receita_arquivo = os.path.join('Z:/DADOS/EXTRATOR/RECEITA_GERADA/', f'receitas_base_18a24.xlsx')
 
             if os.path.exists(base_receita_arquivo):
                 os.remove(base_receita_arquivo)
-            wget.download(url, base_receita_arquivo)
+            
+            #wget.download(url, base_receita_arquivo)
+
+            df = pd.read_excel(url)
             
         except: 
             url = f'http://extrator.sefaz.al.gov.br/RECEITAS/receita_consolidado_2018_2024_siafe_gerado_em_{data_atual}.xlsx'
             
-            base_receita_arquivo = os.path.join('Z:/DADOS/EXTRATOR/RECEITAS/', f'receitas_base_18a24.xlsx')
+            base_receita_arquivo = os.path.join('Z:/DADOS/EXTRATOR/RECEITA_GERADA/', f'receitas_base_18a24.xlsx')
             
             if os.path.exists(base_receita_arquivo):
                 os.remove(base_receita_arquivo)
             
             # Baixar o arquivo
-            wget.download(url, base_receita_arquivo)
+            #wget.download(url, base_receita_arquivo)
+           
+            # Baixar o arquivo
+            df = pd.read_excel(url)
+        
+        df.to_excel('Z:/DADOS/EXTRATOR/RECEITA_GERADA/receitas_base_18a24.xlsx', index=False, engine='openpyxl')
+            
 
     except Exception as e:
         print(' ') 
