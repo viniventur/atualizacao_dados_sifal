@@ -115,7 +115,12 @@ def receita():
             df = pd.read_excel(url)
         
         df.to_excel('Z:/DADOS/EXTRATOR/RECEITA_GERADA/receitas_base_18a24.xlsx', index=False, engine='openpyxl')
-            
+
+        print(' ')
+        print('ATUALIZACAO CONCLUIDA!')
+        print(' ')
+        popup_concluido()
+
 
     except Exception as e:
         print(' ') 
@@ -128,8 +133,3 @@ def receita():
 despesa()
 dotacao()
 receita()
-
-print(' ')
-print('ATUALIZACAO CONCLUIDA!')
-print(' ')
-popup_concluido()
