@@ -1,7 +1,6 @@
 # Automações de Atualização de Dados de Contabilidade Pública :chart_with_upwards_trend:	
 <div style="display: flex; align-items: center;">
-    <img src="https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue
-    " alt="Python" width="120" style="margin-right: 10px;">
+    <img src="https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue" alt="Python" width="120">
 </div>
 
 # Descrição do projeto :clipboard:	
