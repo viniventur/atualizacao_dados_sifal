@@ -16,7 +16,7 @@ data_execucao = datetime.now().strftime("%d/%m/%Y - %H:%M")
 df = pd.read_excel('dados_extrator_links.xlsx')
 
 # Diretório de salvamento
-save_dir = r"Z:\DADOS\EXTRATOR\CONSOLIDADAS"
+save_dir = r"O:\DADOS\EXTRATOR\CONSOLIDADAS"
 os.makedirs(save_dir, exist_ok=True)
 
 # Diretório de log
