@@ -43,7 +43,7 @@ Este repositório contém scripts de automação de atualização e download de 
 
 3. Execute o script:
    ```bash
-   python extrator_dados_sefaz.py
+   python download_sefaz.py
    ```
 
 4. Verifique os logs em `log_execucao.txt` para os detalhes da execução.
